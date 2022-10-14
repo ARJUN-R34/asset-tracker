@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/ARJUN-R34/asset-tracker/issues"
   },
-  "homepage": "https://github.com/ARJUN-R34/asset-tracker#readme"
+  "homepage": "https://github.com/ARJUN-R34/asset-tracker#readme",
+  "dependencies": {
+    "web3": "^1.8.0"
+  }
 }
