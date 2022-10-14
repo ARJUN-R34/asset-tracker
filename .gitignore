@@ -103,8 +103,11 @@ dist
 # TernJS port file
 .tern-port
 
-# test file
+#Files not required for production deployment
+.nyc_output
+test
+logs
 test.js
-
-# debugger file
 .vscode
+.editorconfig
+.eslintrc.js
