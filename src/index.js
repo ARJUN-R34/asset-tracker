@@ -10,6 +10,13 @@ class EVM {
     this.web3 = new Web3(new Web3.providers.HttpProvider(chains[chainName].RPC));
   }
 
+  switchChain(chainName) {
+    validator.validateConstructor('EVM', chainName);
+
+    this.chain = chainName;
+    this.web3 = new Web3(new Web3.providers.HttpProvider(chains[chainName].RPC));
+  }
+
   async getNativeAssetBalance(address) {
     validator.validateAddress(address);
 
