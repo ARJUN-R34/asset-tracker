@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/ARJUN-R34/asset-tracker#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "web3": "^1.8.0"
   },
   "devDependencies": {
