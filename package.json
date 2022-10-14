@@ -1,0 +1,27 @@
+{
+  "name": "asset-tracker",
+  "version": "1.0.0",
+  "description": "Asset tracker to track all your multichain assets",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ARJUN-R34/asset-tracker.git"
+  },
+  "keywords": [
+    "defi",
+    "ethereum",
+    "evm",
+    "blockchain",
+    "polygon",
+    "non-evm"
+  ],
+  "author": "Arjun Sasikumar (itsarjn@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ARJUN-R34/asset-tracker/issues"
+  },
+  "homepage": "https://github.com/ARJUN-R34/asset-tracker#readme"
+}
