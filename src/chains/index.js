@@ -9,7 +9,7 @@ const avalanche = require('./avalanche');
 const fantom = require('./fantom');
 
 const evmChains = {
-    'polygon': 'ETH',
+    'ethereum': 'ETH',
     'bsc': 'BNB',
     'polygon': 'MATIC',
     'velas': 'VLX',
