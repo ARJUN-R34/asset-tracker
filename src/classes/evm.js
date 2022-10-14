@@ -40,7 +40,7 @@ class EVM {
 
     const assetDetails = [];
 
-    assets.forEach((asset) => {
+    assets.tokenBalances.forEach((asset) => {
       const obj = {};
 
       obj.name = asset.name;
@@ -49,6 +49,37 @@ class EVM {
       obj.decimals = asset.decimals;
       obj.priceInUSD = asset.value.price;
       obj.iconURL = asset.iconUrl;
+
+      assetDetails.push(obj);
+    });
+
+    return assetDetails;
+  }
+
+  async discoverNonFungibleAssets(address) {
+    validator.validateAddress(address);
+
+    const checksumAddress = this.web3.utils.toChecksumAddress(address);
+
+    const assets = await helper.getRequest(
+      `${config.EVM_NON_FUNGIBLE_ASSET_DISCOVERY_API}/${checksumAddress}/nfts`,
+    );
+
+    const assetDetails = [];
+
+    const filteredData = assets.data.filter((asset) => asset.chainId === chains[this.chain].CHAIN_ID);
+
+    filteredData.forEach((asset) => {
+      const obj = {};
+
+      obj.name = asset.name;
+      obj.symbol = asset.symbol;
+      obj.tokenId = asset.tokenId;
+      obj.tokenUrl = asset.tokenUrl;
+      obj.contractAddress = asset.tokenAddress;
+      obj.metadata = { name: asset.metadata.name };
+      obj.metadata.description = asset.metadata.description;
+      obj.metadata.image = asset.metadata.image;
 
       assetDetails.push(obj);
     });
