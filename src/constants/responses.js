@@ -1,5 +1,9 @@
 module.exports = {
-    invalidInit: function(chain) {
-        return `Invalid chain selected - ${chain}.`
-    }
-}
+  invalidInit(chain) {
+    return `Invalid chain selected - ${chain}.`;
+  },
+  invalidAddress(address) {
+    return `Address ${address} passed is invalid.`;
+  },
+  INVALID_ADDRESS: 'Invalid address passed.',
+};
