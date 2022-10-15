@@ -4,6 +4,7 @@ const validator = require('../utils/input-validator');
 const helper = require('../utils/helper');
 const chains = require('../chains');
 const config = require('../config');
+const responses = require('../constants/responses');
 
 class EVM {
   constructor(chainName) {
@@ -30,6 +31,8 @@ class EVM {
   }
 
   async discoverFungibleAssets(address) {
+    validator.checkSupportForChains(this.chain, 'discoverFungibleAssets');
+
     validator.validateAddress(address);
 
     const checksumAddress = this.web3.utils.toChecksumAddress(address);
@@ -57,6 +60,8 @@ class EVM {
   }
 
   async discoverNonFungibleAssets(address) {
+    validator.checkSupportForChains(this.chain, 'discoverNonFungibleAssets');
+
     validator.validateAddress(address);
 
     const checksumAddress = this.web3.utils.toChecksumAddress(address);
@@ -85,6 +90,53 @@ class EVM {
     });
 
     return assetDetails;
+  }
+
+  async getTransactions({
+    address, page, limit, type = 'all',
+  }) {
+    validator.checkSupportForChains(this.chain, 'getTransactions');
+
+    validator.validateAddress(address);
+
+    if (type !== 'incoming' && type !== 'outgoing' && type !== 'all') {
+      throw responses.INVALID_TYPE_PASSED;
+    }
+
+    const checksumAddress = this.web3.utils.toChecksumAddress(address);
+
+    const apiURL = helper.getApiURL(this.chain, checksumAddress, page, limit);
+
+    const transactions = await helper.getRequest(apiURL);
+
+    let txDetails = [];
+
+    transactions.result.forEach((txn) => {
+      const obj = { };
+
+      obj.from = txn.from;
+      obj.to = txn.to || txn.contractAddress;
+      obj.blockNumber = txn.blockNumber;
+      obj.transactionHash = txn.hash;
+      obj.nonce = txn.nonce;
+      obj.value = txn.value;
+      obj.gas = txn.gas;
+      obj.gasPrice = txn.gasPrice;
+      obj.transactionSuccess = txn.isError === '0';
+      obj.input = txn.input;
+      obj.methodId = txn.methodId;
+      obj.function = txn.functionName;
+
+      txDetails.push(obj);
+    });
+
+    if (type === 'incoming') {
+      txDetails = txDetails.filter((element) => element.to === address);
+    } else if (type === 'outgoing') {
+      txDetails = txDetails.filter((element) => element.from === address);
+    }
+
+    return txDetails;
   }
 }
 

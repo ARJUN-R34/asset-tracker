@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const chains = require('../chains');
+
 const getRequest = async (url) => {
   try {
     const response = await axios.get(url);
@@ -10,4 +12,6 @@ const getRequest = async (url) => {
   }
 };
 
-module.exports = { getRequest };
+const getApiURL = (chain, address, page, limit) => `${chains[chain].GET_TXN_LIST_API}&address=${address}&startblock=0&page=${page}&offset=${limit}&sort=asc`;
+
+module.exports = { getRequest, getApiURL };

@@ -4,4 +4,9 @@ module.exports = {
   NAME: 'Velas',
   RPC: 'https://explorer.velas.com/rpc',
   DECIMALS: 18,
+  FUNCTIONALITY_SUPPORT: {
+    getTransactions: false,
+    discoverFungibleAssets: false,
+    discoverNonFungibleAssets: false,
+  },
 };
