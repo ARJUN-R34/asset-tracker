@@ -19,7 +19,14 @@ function validateAddress(address) {
   }
 }
 
+function checkSupportForChains(chain, functionName) {
+  if (!chains[chain].FUNCTIONALITY_SUPPORT[functionName]) {
+    throw responses.functionalityNotSupported(functionName, chain);
+  }
+}
+
 module.exports = {
   validateConstructor,
   validateAddress,
+  checkSupportForChains,
 };
