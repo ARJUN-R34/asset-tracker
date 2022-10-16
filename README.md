@@ -132,6 +132,5 @@ switchChain(chainName);
 
 <br>
 
-> **Note**
-<br>
+> **Note**</ br>
 > Please note that currently, this library only supports EVM chains. Will soon be adding support for non EVM chains.
