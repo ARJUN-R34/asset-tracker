@@ -6,6 +6,9 @@
 <br>
 
 This library will be updated continuously with more and more chain support and increasing granularity of data.
+
+<br>
+
 ## **Installation and Usage**
 
 <br>
