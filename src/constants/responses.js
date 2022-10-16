@@ -11,6 +11,9 @@ module.exports = {
   invalidContractAddress(contractAddress) {
     return `Address ${contractAddress} is not a valid contract address.`;
   },
+  invalidFunctionName(functionName) {
+    return `${functionName} - Invalid function name passed.`;
+  },
   INVALID_ADDRESS: 'Invalid address passed.',
   INVALID_TYPE_PASSED: 'The type value has to be "incoming" or "outgoing" or left empty.',
 };

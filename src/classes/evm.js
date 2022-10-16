@@ -176,6 +176,26 @@ class EVM {
       name, symbol,
     };
   }
+
+  getSupportedChains(functionName = 'all') {
+    validator.validateFunctionName(functionName);
+
+    const chainsArray = [];
+
+    if (functionName === 'all') {
+      chainsArray.push(...Object.keys(chains.evmChains));
+    } else {
+      const chainsArr = Object.keys(chains.evmChains);
+
+      for (let i = 0; i < chainsArr.length; i += 1) {
+        if (chains[chainsArr[i]].FUNCTIONALITY_SUPPORT[functionName]) {
+          chainsArray.push(chains[chainsArr[i]].NAME.toLowerCase());
+        }
+      }
+    }
+
+    return chainsArray;
+  }
 }
 
 module.exports = EVM;
