@@ -37,9 +37,16 @@ async function validateContractAddress(Web3, contractAddress) {
   }
 }
 
+function validateFunctionName(functionName) {
+  if (!chains.supportedFunctions.includes(functionName) && functionName !== 'all') {
+    throw responses.invalidFunctionName(functionName);
+  }
+}
+
 module.exports = {
   validateConstructor,
   validateAddress,
   checkSupportForChains,
   validateContractAddress,
+  validateFunctionName,
 };

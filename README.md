@@ -134,5 +134,17 @@ switchChain(chainName);
 
 <br>
 
+> Get Supported Chains (filter by function name)
+
+This function will return the list of all the supported chains. The user can pass an optional parameter `functionName` which will return all the chains that supports this particular functionality.
+
+```js
+getSupportedChains(functionName);
+```
+
+* `functionName` (optional. defaults to `all`) - Name of the function to be checked for chain support.
+
+<br>
+
 > **Note** <br />
 > Please note that currently, this library only supports EVM chains. Will soon be adding support for non EVM chains.

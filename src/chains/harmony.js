@@ -8,5 +8,9 @@ module.exports = {
     getTransactions: false,
     discoverFungibleAssets: false,
     discoverNonFungibleAssets: false,
+    switchChain: true,
+    getNativeAssetBalance: true,
+    getFungibleTokenDetails: true,
+    getNFTDetails: true,
   },
 };

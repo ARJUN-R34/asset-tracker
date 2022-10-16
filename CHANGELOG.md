@@ -13,3 +13,9 @@ Functionalities included :
 * `getFungibleTokenDetails(contractAddress)` - Get the details for a particular fungible token from the contract.
 * `getNFTDetails(contractAddress)` - Get the details for a particular non fungible token from the contract.
 * `switchChain(chainName)` - Functionality to switch between the supported chains.
+
+### 1.1.0 (16-10-2022)
+
+##### Get Supported Chains
+
+* `getSupportedChains(functionName)` - Get the list of all the supported chains. This list can be filtered by `functionName` supported by the chains.

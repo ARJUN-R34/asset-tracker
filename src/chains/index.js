@@ -9,29 +9,32 @@ const avalanche = require('./avalanche');
 const fantom = require('./fantom');
 
 const evmChains = {
-    'ethereum': 'ETH',
-    'bsc': 'BNB',
-    'polygon': 'MATIC',
-    'velas': 'VLX',
-    'avalanche': 'AVAX',
-    'harmony': 'ONE',
-    'optimism': 'ETH',
-    'arbitrum': 'ETH',
-    'fantom': 'FTM',
+  ethereum: 'ETH',
+  bsc: 'BNB',
+  polygon: 'MATIC',
+  velas: 'VLX',
+  avalanche: 'AVAX',
+  harmony: 'ONE',
+  optimism: 'ETH',
+  arbitrum: 'ETH',
+  fantom: 'FTM',
 };
+
+const supportedFunctions = ['switchChain', 'getNativeAssetBalance', 'discoverFungibleAssets', 'discoverNonFungibleAssets', 'getTransactions', 'getFungibleTokenDetails', 'getNFTDetails'];
 
 const nonEvmChains = { };
 
 module.exports = {
-    ethereum,
-    polygon,
-    bsc,
-    harmony,
-    avalanche,
-    velas,
-    optimism,
-    arbitrum,
-    fantom,
-    evmChains,
-    nonEvmChains,
-}
+  ethereum,
+  polygon,
+  bsc,
+  harmony,
+  avalanche,
+  velas,
+  optimism,
+  arbitrum,
+  fantom,
+  evmChains,
+  nonEvmChains,
+  supportedFunctions,
+};
