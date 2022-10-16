@@ -55,6 +55,8 @@ const nativeAssetbalance = await tracker.getNativeAssetBalance(address);
 
 * `address` (required) - Address for which the native asset balance is to be fetched. Can be a contract address or an EOA.
 
+<br>
+
 > Discover Fungible Assets
 
 Scans the address for any fungible asset balances and returns the same.
@@ -65,6 +67,8 @@ const fungibleAssets = await tracker.discoverFungibleAssets(address);
 
 * `address` (required) - Address for which the list of fungible assets is to be checked.
 
+<br>
+
 > Discover Non Fungible Assets (NFTs)
 
 Scans the address for any non fungible assets and returns the same.
@@ -74,6 +78,8 @@ const nonFungibleAssets = await tracker.discoverNonFungibleAssets(address);
 ```
 
 * `address` (required) - Address for which the list of non fungible assets is to be checked.
+
+<br>
 
 > Get the list of transactions
 
@@ -88,6 +94,8 @@ const transactions = await tracker.getTransactions({ address, page, limit, type 
 * `limit` (required) - Number of results to be returned in every page for pagination.
 * `type` (optional. default = `all`) - Parameter to filter out the `incoming` or `outgoing` transactions. Defaults to `all`.
 
+<br>
+
 > Get the token details for a particular fungible token address
 
 Returns the basic info about a particular fungible asset.
@@ -97,6 +105,8 @@ const fungibleAssetInfo = await tracker.getFungibleTokenDetails(contractAddress)
 ```
 
 * `contractAddress` (required) - Contract address of the fungible token.
+
+<br>
 
 > Get the token details for a particular non fungible (NFT) token address
 
@@ -108,6 +118,8 @@ const nonFungibleAssetInfo = await tracker.getNFTDetails(contractAddress);
 
 * `contractAddress` (required) - Contract address of the non fungible token.
 
+<br>
+
 > Switch Chains
 
 Switch between different supported chains. Once the chain is switched, all the subsequent functions will work for this new chain.
@@ -118,5 +130,8 @@ switchChain(chainName);
 
 * `chainName` (required) - Name of the new chain to be switched.
 
+<br>
+
 > **Note**
+<br>
 > Please note that currently, this library only supports EVM chains. Will soon be adding support for non EVM chains.
