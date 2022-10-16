@@ -5,6 +5,7 @@ const helper = require('../utils/helper');
 const chains = require('../chains');
 const config = require('../config');
 const responses = require('../constants/responses');
+const erc20ABI = require('../constants/erc20-abi');
 
 class EVM {
   constructor(chainName) {
@@ -137,6 +138,25 @@ class EVM {
     }
 
     return txDetails;
+  }
+
+  async getFungibleTokenDetails(contractAddress) {
+    validator.validateAddress(contractAddress);
+
+    const checksumAddress = this.web3.utils.toChecksumAddress(contractAddress);
+
+    await validator.validateContractAddress(this.web3, checksumAddress);
+
+    const erc20Instance = new this.web3.eth.Contract(erc20ABI, checksumAddress);
+
+    const totalSupply = await erc20Instance.methods.totalSupply().call();
+    const name = await erc20Instance.methods.name().call();
+    const symbol = await erc20Instance.methods.symbol().call();
+    const decimals = await erc20Instance.methods.decimals().call();
+
+    return {
+      totalSupply, name, symbol, decimals,
+    };
   }
 }
 

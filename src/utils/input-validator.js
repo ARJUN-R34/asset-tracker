@@ -25,8 +25,21 @@ function checkSupportForChains(chain, functionName) {
   }
 }
 
+async function validateContractAddress(Web3, contractAddress) {
+  try {
+    const code = await Web3.eth.getCode(contractAddress);
+
+    if (code === '0x') {
+      throw responses.invalidContractAddress(contractAddress);
+    }
+  } catch (err) {
+    throw responses.invalidContractAddress(contractAddress);
+  }
+}
+
 module.exports = {
   validateConstructor,
   validateAddress,
   checkSupportForChains,
+  validateContractAddress,
 };
