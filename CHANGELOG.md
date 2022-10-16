@@ -2,7 +2,7 @@
 
 ##### Initial commit with EVM functionalities
 
-Users can track their assets across supported EVM chains
+Users can track their assets across supported EVM chains.
 
 Functionalities included :
 
