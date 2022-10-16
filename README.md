@@ -11,7 +11,6 @@ This library will be updated continuously with more and more chain support and i
 
 ## **Installation and Usage**
 
-<br>
 
 ### Installation
 
