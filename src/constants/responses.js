@@ -8,6 +8,9 @@ module.exports = {
   functionalityNotSupported(functionName, chain) {
     return `${functionName} function is currently not supported on ${chain} chain.`;
   },
+  invalidContractAddress(contractAddress) {
+    return `Address ${contractAddress} is not a valid contract address.`;
+  },
   INVALID_ADDRESS: 'Invalid address passed.',
   INVALID_TYPE_PASSED: 'The type value has to be "incoming" or "outgoing" or left empty.',
 };
