@@ -6,6 +6,7 @@ const chains = require('../chains');
 const config = require('../config');
 const responses = require('../constants/responses');
 const erc20ABI = require('../constants/erc20-abi');
+const erc721ABI = require('../constants/erc721-abi');
 
 class EVM {
   constructor(chainName) {
@@ -156,6 +157,23 @@ class EVM {
 
     return {
       totalSupply, name, symbol, decimals,
+    };
+  }
+
+  async getNFTDetails(contractAddress) {
+    validator.validateAddress(contractAddress);
+
+    const checksumAddress = this.web3.utils.toChecksumAddress(contractAddress);
+
+    await validator.validateContractAddress(this.web3, checksumAddress);
+
+    const erc721Instance = new this.web3.eth.Contract(erc721ABI, checksumAddress);
+
+    const name = await erc721Instance.methods.name().call();
+    const symbol = await erc721Instance.methods.symbol().call();
+
+    return {
+      name, symbol,
     };
   }
 }
