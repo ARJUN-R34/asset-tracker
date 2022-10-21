@@ -37,3 +37,9 @@ Functionalities included :
 ##### Switch Chains - nonEVM
 
 * `switchChain(chainName)` - Switch between the supported nonEVM chains.
+
+### 1.5.0 (22-10-2022)
+
+##### Get Supported Chains - nonEVM
+
+* `getSupportedChains(functionName)` - Get the list of all the supported chains. This list can be filtered by `functionName` supported by the chains.
