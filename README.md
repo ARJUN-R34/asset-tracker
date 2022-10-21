@@ -146,5 +146,15 @@ getSupportedChains(functionName);
 
 <br>
 
+> Get Native Asset Details
+
+This function will return the details of the native asset of the chain initialized.
+
+```js
+getNativeAssetDetails();
+```
+
+<br>
+
 > **Note** <br />
 > Please note that currently, this library only supports EVM chains. Will soon be adding support for non EVM chains.
