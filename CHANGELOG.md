@@ -31,3 +31,9 @@ Functionalities included :
 ##### Get Native Asset Details
 
 * `getNativeAssetDetails()` - Get the details of the native token of the initialized nonEVM chain.
+
+### 1.4.0 (22-10-2022)
+
+##### Switch Chains - nonEVM
+
+* `switchChain(chainName)` - Switch between the supported nonEVM chains.
