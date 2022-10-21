@@ -3,6 +3,7 @@ module.exports = {
   SYMBOL: 'ONE',
   NAME: 'Harmony',
   RPC: 'https://rpc.ankr.com/harmony',
+  ASSET_API: 'https://api.coingecko.com/api/v3/coins/harmony',
   DECIMALS: 18,
   FUNCTIONALITY_SUPPORT: {
     getTransactions: false,
@@ -12,5 +13,6 @@ module.exports = {
     getNativeAssetBalance: true,
     getFungibleTokenDetails: true,
     getNFTDetails: true,
+    getNativeAssetDetails: true,
   },
 };

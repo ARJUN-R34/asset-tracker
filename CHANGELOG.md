@@ -19,3 +19,9 @@ Functionalities included :
 ##### Get Supported Chains
 
 * `getSupportedChains(functionName)` - Get the list of all the supported chains. This list can be filtered by `functionName` supported by the chains.
+
+### 1.2.0 (22-10-2022)
+
+##### Get Native Asset Details
+
+* `getNativeAssetDetails()` - Get the details of the native token of the initialized chain.

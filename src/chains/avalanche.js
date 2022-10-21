@@ -13,5 +13,6 @@ module.exports = {
     getNativeAssetBalance: true,
     getFungibleTokenDetails: true,
     getNFTDetails: true,
+    getNativeAssetDetails: false,
   },
 };
