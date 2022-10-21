@@ -25,3 +25,9 @@ Functionalities included :
 ##### Get Native Asset Details
 
 * `getNativeAssetDetails()` - Get the details of the native token of the initialized chain.
+
+### 1.3.0 (22-10-2022)
+
+##### Get Native Asset Details
+
+* `getNativeAssetDetails()` - Get the details of the native token of the initialized nonEVM chain.

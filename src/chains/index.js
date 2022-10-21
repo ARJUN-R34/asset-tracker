@@ -1,12 +1,17 @@
-const ethereum = require('./ethereum');
-const polygon = require('./polygon');
-const bsc = require('./bsc');
-const velas = require('./velas');
-const harmony = require('./harmony');
-const optimism = require('./optimism');
-const arbitrum = require('./arbitrum');
-const avalanche = require('./avalanche');
-const fantom = require('./fantom');
+const ethereum = require('./evm/ethereum');
+const polygon = require('./evm/polygon');
+const bsc = require('./evm/bsc');
+const velas = require('./evm/velas');
+const harmony = require('./evm/harmony');
+const optimism = require('./evm/optimism');
+const arbitrum = require('./evm/arbitrum');
+const avalanche = require('./evm/avalanche');
+const fantom = require('./evm/fantom');
+
+const bitcoin = require('./non-evm/bitcoin');
+const tezos = require('./non-evm/tezos');
+const solana = require('./non-evm/solana');
+const tron = require('./non-evm/tron');
 
 const evmChains = {
   ethereum: 'ETH',
@@ -20,9 +25,14 @@ const evmChains = {
   fantom: 'FTM',
 };
 
-const supportedFunctions = ['switchChain', 'getNativeAssetBalance', 'discoverFungibleAssets', 'discoverNonFungibleAssets', 'getTransactions', 'getFungibleTokenDetails', 'getNFTDetails'];
+const nonEvmChains = {
+  bitcoin: 'BTC',
+  solana: 'SOL',
+  tron: 'TRX',
+  tezos: 'XTZ',
+};
 
-const nonEvmChains = { };
+const supportedFunctions = ['switchChain', 'getNativeAssetBalance', 'discoverFungibleAssets', 'discoverNonFungibleAssets', 'getTransactions', 'getFungibleTokenDetails', 'getNFTDetails'];
 
 module.exports = {
   ethereum,
@@ -34,6 +44,10 @@ module.exports = {
   optimism,
   arbitrum,
   fantom,
+  bitcoin,
+  tezos,
+  solana,
+  tron,
   evmChains,
   nonEvmChains,
   supportedFunctions,
