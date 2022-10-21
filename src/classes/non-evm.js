@@ -8,6 +8,12 @@ class nonEVM {
     this.chain = chainName;
   }
 
+  switchChain(chainName) {
+    validator.validateConstructor('nonEVM', chainName);
+
+    this.chain = chainName;
+  }
+
   async getNativeAssetDetails() {
     validator.checkSupportForChains(this.chain, 'getNativeAssetDetails');
 
