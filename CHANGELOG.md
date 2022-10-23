@@ -48,5 +48,5 @@ Functionalities included :
 
 ##### Get Transactions - nonEVM
 
-* `getTransactions( { address })` - Get the list of all transactions of the passed public address.
+* `getTransactions({ address })` - Get the list of all transactions of the passed public address.
 * Minor updates to the code structure.
