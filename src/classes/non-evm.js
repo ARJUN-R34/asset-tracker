@@ -51,6 +51,20 @@ class nonEVM {
 
     return chainsArray;
   }
+
+  async getTransactions({ address }) {
+    validator.checkSupportForChains(this.chain, 'getTransactions');
+
+    if (type !== 'incoming' && type !== 'outgoing' && type !== 'all') {
+      throw responses.INVALID_TYPE_PASSED;
+    }
+
+    const apiURL = chains[this.chain].GET_TXN_LIST_API(address);
+
+    const transactions = await helper.getRequest(apiURL);
+
+    return transactions;
+  }
 }
 
 module.exports = nonEVM;

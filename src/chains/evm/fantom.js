@@ -6,6 +6,8 @@ module.exports = {
   DECIMALS: 18,
   GET_TXN_LIST_API: 'https://api.ftmscan.com/api?module=account&action=txlist',
   ASSET_API: 'https://api.coingecko.com/api/v3/coins/fantom',
+  EVM_FUNGIBLE_ASSET_DISCOVERY_API: 'https://account.metafi.codefi.network/accounts',
+  EVM_NON_FUNGIBLE_ASSET_DISCOVERY_API: '',
   FUNCTIONALITY_SUPPORT: {
     getTransactions: true,
     discoverFungibleAssets: true,

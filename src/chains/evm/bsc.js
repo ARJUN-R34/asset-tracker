@@ -6,6 +6,8 @@ module.exports = {
   DECIMALS: 18,
   GET_TXN_LIST_API: 'https://api.bscscan.com/api?module=account&action=txlist',
   ASSET_API: 'https://api.coingecko.com/api/v3/coins/binancecoin',
+  EVM_FUNGIBLE_ASSET_DISCOVERY_API: 'https://account.metafi.codefi.network/accounts',
+  EVM_NON_FUNGIBLE_ASSET_DISCOVERY_API: 'https://nft.metafi.codefi.network/accounts',
   FUNCTIONALITY_SUPPORT: {
     getTransactions: true,
     discoverFungibleAssets: true,
