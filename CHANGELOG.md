@@ -43,3 +43,10 @@ Functionalities included :
 ##### Get Supported Chains - nonEVM
 
 * `getSupportedChains(functionName)` - Get the list of all the supported chains. This list can be filtered by `functionName` supported by the chains.
+
+### 1.6.0 (24-10-2022)
+
+##### Get Transactions - nonEVM
+
+* `getTransactions({ address })` - Get the list of all transactions of the passed public address.
+* Minor updates to the code structure.

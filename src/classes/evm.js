@@ -3,7 +3,6 @@ const Web3 = require('web3');
 const validator = require('../utils/input-validator');
 const helper = require('../utils/helper');
 const chains = require('../chains');
-const config = require('../config');
 const responses = require('../constants/responses');
 const erc20ABI = require('../constants/erc20-abi');
 const erc721ABI = require('../constants/erc721-abi');
@@ -57,9 +56,7 @@ class EVM {
 
     const checksumAddress = this.web3.utils.toChecksumAddress(address);
 
-    const assets = await helper.getRequest(
-      `${config.EVM_FUNGIBLE_ASSET_DISCOVERY_API}/${checksumAddress}?chainId=${chains[this.chain].CHAIN_ID}&includePrices=true`,
-    );
+    const assets = await helper.getRequest(chains[this.chain].EVM_FUNGIBLE_ASSET_DISCOVERY_API(checksumAddress, chains[this.chain].CHAIN_ID));
 
     const assetDetails = [];
 
@@ -86,9 +83,7 @@ class EVM {
 
     const checksumAddress = this.web3.utils.toChecksumAddress(address);
 
-    const assets = await helper.getRequest(
-      `${config.EVM_NON_FUNGIBLE_ASSET_DISCOVERY_API}/${checksumAddress}/nfts`,
-    );
+    const assets = await helper.getRequest(chains[this.chain].EVM_NON_FUNGIBLE_ASSET_DISCOVERY_API(checksumAddress));
 
     const assetDetails = [];
 
@@ -125,7 +120,7 @@ class EVM {
 
     const checksumAddress = this.web3.utils.toChecksumAddress(address);
 
-    const apiURL = helper.getApiURL(this.chain, checksumAddress, page, limit);
+    const apiURL = chains[this.chain].GET_TXN_LIST_API(checksumAddress, page, limit);
 
     const transactions = await helper.getRequest(apiURL);
 
